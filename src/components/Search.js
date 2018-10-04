@@ -61,6 +61,8 @@ class Search extends Component {
       );
     });
 
+    // TODO: Learn about DebounceInput in React as it helps to reduce the number of useless network calls to the server. https://blog.revathskumar.com/2016/02/reactjs-using-debounce-in-react-components.html
+    // TODO: Display "Books not found" in case of search error. Hint: You may need to use another state to separate the case from blank query.
     return (
       <div className="search-books">
         <div className="search-books-bar">

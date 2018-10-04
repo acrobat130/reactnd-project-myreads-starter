@@ -76,7 +76,13 @@ class BooksApp extends React.Component {
         }
 
         const searchResultBooksData = formatBooksData(res);
-
+        /*
+          TODO: "When you enter 'andk' quickly in the search bar you can check in networks bar of dev-tools that there are two requests sent to the server.
+          One for 'and' and other for 'andk'.
+          The response of 'and' is delayed and 'andk' gets resolved before.
+          And because of the asynchronous nature of Promises the setState for 'and' is called after processing the response of 'andk' showing results of 'and' for 'andk'.
+          Inside 'then' part of the promise check if(query === this.state.query) to ensure you are not going to replace the contents to an old response.
+        */
         this.setState({ searchResultBooksData });
       });
     }
@@ -93,6 +99,7 @@ class BooksApp extends React.Component {
       searchResultBooksData,
     } = this.state;
 
+    // TODO: put routes inside switch statement
     return (
       <div className="app">
         <Route
